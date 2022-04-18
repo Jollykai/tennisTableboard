@@ -13,6 +13,25 @@ public class Match {
     private int player1Set3Games;
     private int player2Set3Games;
 
+    private boolean isSetOver;
+    private boolean isGameOver;
+
+    public boolean isSetOver() {
+        return isSetOver;
+    }
+
+    public void setSetOver(boolean setOver) {
+        isSetOver = setOver;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        isGameOver = gameOver;
+    }
+
     public String getPlayer1Name() {
         return player1Name;
     }

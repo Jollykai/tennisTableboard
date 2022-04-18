@@ -10,13 +10,12 @@ Place where game begin
 <table border="1">
     <tr>
         <td>${match.player1Name}</td>
-        <td style="text-align: center;">${match.points[1]}</td>
-        <td style="text-align: center;">0</td>
-        <td style="text-align: center;">0</td>
-        <td style="text-align: center;">0</td>
-        <td><input type="button" name="point1">Player1 take a point</td>
-        <td><form action="">
-            <input type="submit" name="point1" value="Player1 take a point">
+        <td style="text-align: center;">${match.points[match.player1Points]}</td>
+        <td style="text-align: center;">${match.player1Set1Games}</td>
+        <td style="text-align: center;">${match.player1Set2Games}</td>
+        <td style="text-align: center;">${match.player1Set3Games}</td>
+        <td><form action="match" modelAttribute= "match" method="post">
+            <input type="submit" name="1point" value="Player1 take a point">
         </form> </td>
     </tr>
     <tr>
@@ -24,11 +23,13 @@ Place where game begin
     </tr>
     <tr>
         <td>Player 2</td>
-        <td style="text-align: center;">00</td>
-        <td style="text-align: center;">0</td>
-        <td style="text-align: center;">0</td>
-        <td style="text-align: center;">0</td>
-        <td><button>Player2 take a point</button></td>
+        <td style="text-align: center;">${match.points[match.player2Points]}</td>
+        <td style="text-align: center;">${match.player2Set1Games}</td>
+        <td style="text-align: center;">${match.player2Set2Games}</td>
+        <td style="text-align: center;">${match.player2Set3Games}</td>
+        <td><form action="match" modelAttribute= "match" method="post">
+            <input type="submit" name="2point" value="Player2 take a point">
+        </form> </td>
     </tr>
 </table>
 
