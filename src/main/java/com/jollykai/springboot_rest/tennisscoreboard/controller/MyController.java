@@ -9,31 +9,30 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/")
 public class MyController {
 
+    Match match;
+
     @RequestMapping("/")
     public String showFirstView() {
+        match = new Match();
         return "first-view";
     }
 
     @GetMapping("/match")
     public String startMatch(Model model) {
-        model.addAttribute("match", new Match());
+            model.addAttribute("match", match);
         return "match-view";
     }
 
     @PostMapping("/match")
-    public String playMatch(@RequestBody String point, @ModelAttribute("match") Match match) {
-        System.out.println(point.charAt(0));
-        if (point.charAt(0) == '1') {
-            int matchpoint = match.getPlayer1Points();
-            System.out.println(matchpoint);
-            matchpoint++;
-            System.out.println(matchpoint);
-            match.setPlayer1Points(matchpoint);
-            System.out.println(match.getPlayer1Points());
-        }
-        System.out.println(point);
+    public String playMatch(@RequestBody String point, Model model) {
+        model.addAttribute("match", match);
+        match.MatchLogic(point, match);
 
-        return "match-view";
+        if (match.isGameOver()) {
+            return "game-over-view";
+        } else {
+            return "match-view";
+        }
     }
 
 
