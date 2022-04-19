@@ -14,6 +14,7 @@ public class MyController {
     @RequestMapping("/")
     public String showFirstView() {
         match = new Match();
+        match.getPlayer1().setName("John");
         return "first-view";
     }
 
@@ -26,7 +27,7 @@ public class MyController {
     @PostMapping("/match")
     public String playMatch(@RequestBody String point, Model model) {
         model.addAttribute("match", match);
-        match.MatchLogic(point, match);
+//        match.MatchLogic(point, match);
 
         if (match.isGameOver()) {
             return "game-over-view";
