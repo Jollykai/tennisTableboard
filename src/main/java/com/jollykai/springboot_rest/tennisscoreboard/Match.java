@@ -1,31 +1,42 @@
 package com.jollykai.springboot_rest.tennisscoreboard;
 
-import org.springframework.ui.Model;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Match {
-//    Names
-    //Players
-    Player player1 = new Player();
-    Player player2 = new Player();
-//    private String player1Name = "Player1"; //in Player
-//    private String player2Name = "Player2"; //in Player
-    //Points
-    private static final List<String> points = new ArrayList<>(Arrays.asList("00", "15", "30", "40", "40+"));
-//    private int player1Points; //in Player
-//    private int player2Points; //in Player
-    //Sets
-//    private List<Integer> player1SetScores = new ArrayList<>(Arrays.asList(0,0,0)); //in Player
-//    private List<Integer> player2SetScores = new ArrayList<>(Arrays.asList(0,0,0)); //in Player
-//    private int setsWinsByPlayer1; //in Player
-//    private int setsWinsByPlayer2; //in Player
+
     private int currentSet;
+    private static final List<String> pointsList = new ArrayList<>(Arrays.asList("00", "15", "30", "40", "40+"));
+    private List<Player> playersList = new ArrayList<>();
+    private Player winner;
+
+    public Match() {
+    }
+
+    public void createMatch(String player1Name, String player2name) {
+        playersList.add(new Player(player1Name));
+        playersList.add(new Player(player2name));
+    }
+
+
+
+    //    Names
+    //Players
+//    Player player1 = new Player();
+//    Player player2 = new Player();
+    //    private String player1Name = "Player1"; //in Player
+    //    private String player2Name = "Player2"; //in Player
+    //Points
+    //    private int player1Points; //in Player
+    //    private int player2Points; //in Player
+    //Sets
+    //    private List<Integer> player1SetScores = new ArrayList<>(Arrays.asList(0,0,0)); //in Player
+    //    private List<Integer> player2SetScores = new ArrayList<>(Arrays.asList(0,0,0)); //in Player
+    //    private int setsWinsByPlayer1; //in Player
+    //    private int setsWinsByPlayer2; //in Player
     //Booleans
-    private boolean isGameOver;
-    private String winner;
+//    private boolean isGameOver;
 
     //Names
 //    public String getPlayer1Name() {
@@ -45,12 +56,12 @@ public class Match {
 //    }
 
     //Points
-    public List<String> getPoints() {
-        return points;
-    }
+//    public List<String> getPoints() {
+//        return pointsList;
+//    }
 
 //    public void setPoints(List<String>) {
-//        this.points = points;
+//        this.pointsList = pointsList;
 //    }
 //---------------------------------------
 //    public int getPlayer1Points() {
@@ -117,48 +128,48 @@ public class Match {
 //        this.setsWinsByPlayer2 = setsWinsByPlayer2;
 //    }
 //---------------------------------------
-    public int getCurrentSet() {
-        return currentSet;
-    }
-
-    public void setCurrentSet(int currentSet) {
-        this.currentSet = currentSet;
-    }
-    //Booleans
-    public boolean isGameOver() {
-        return isGameOver;
-    }
-
-    public void setGameOver(boolean gameOver) {
-        isGameOver = gameOver;
-    }
-
-    public String getWinner() {
-        return winner;
-    }
-
-    public void setWinner(String winner) {
-        this.winner = winner;
-    }
-
-    public Match() {
-    }
-
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    public void setPlayer1(Player player1) {
-        this.player1 = player1;
-    }
-
-    public Player getPlayer2() {
-        return player2;
-    }
-
-    public void setPlayer2(Player player2) {
-        this.player2 = player2;
-    }
+//    public int getCurrentSet() {
+//        return currentSet;
+//    }
+//
+//    public void setCurrentSet(int currentSet) {
+//        this.currentSet = currentSet;
+//    }
+//    //Booleans
+//    public boolean isGameOver() {
+//        return isGameOver;
+//    }
+//
+//    public void setGameOver(boolean gameOver) {
+//        isGameOver = gameOver;
+//    }
+//
+//    public String getWinner() {
+//        return winner;
+//    }
+//
+//    public void setWinner(String winner) {
+//        this.winner = winner;
+//    }
+//
+//    public Match() {
+//    }
+//
+//    public Player getPlayer1() {
+//        return player1;
+//    }
+//
+//    public void setPlayer1(Player player1) {
+//        this.player1 = player1;
+//    }
+//
+//    public Player getPlayer2() {
+//        return player2;
+//    }
+//
+//    public void setPlayer2(Player player2) {
+//        this.player2 = player2;
+//    }
 
 //    public Match MatchLogic(String point, Match match){
 //        //Game logic

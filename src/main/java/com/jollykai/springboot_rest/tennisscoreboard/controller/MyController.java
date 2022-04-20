@@ -6,15 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/")
 public class MyController {
 
     Match match;
 
+    @RequestMapping("/showPlayers")
+    public String showTestView() {
+        return "test-view";
+    }
+
     @RequestMapping("/")
     public String showFirstView() {
         match = new Match();
-        match.getPlayer1().setName("John");
+//        match.getPlayer1().setName("John");
         return "first-view";
     }
 
@@ -29,12 +33,14 @@ public class MyController {
         model.addAttribute("match", match);
 //        match.MatchLogic(point, match);
 
-        if (match.isGameOver()) {
-            return "game-over-view";
-        } else {
-            return "match-view";
-        }
-    }
+//        if (match.isGameOver()) {
+//            return "game-over-view";
+//        } else {
+//            return "match-view";
+//        }
+          return "match-view";
+
+}
 
 
 
