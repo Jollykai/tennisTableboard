@@ -27,6 +27,7 @@
         }
     </style>
     <title>Tennis Scoreboard</title>
+    <link rel="icon" href="court.png">
 </head>
 
 <body>

@@ -7,19 +7,42 @@ import java.util.List;
 public class Match {
 
     private int currentSet;
-    private static final List<String> pointsList = new ArrayList<>(Arrays.asList("00", "15", "30", "40", "40+"));
+    private final List<String> pointsList = new ArrayList<>(Arrays.asList("00", "15", "30", "40", "40+"));
     private List<Player> playersList = new ArrayList<>();
     private Player winner;
 
     public Match() {
+        playersList.add(new Player());
+        playersList.add(new Player());
     }
 
-    public void createMatch(String player1Name, String player2name) {
-        playersList.add(new Player(player1Name));
-        playersList.add(new Player(player2name));
+    public int getCurrentSet() {
+        return currentSet;
     }
 
+    public void setCurrentSet(int currentSet) {
+        this.currentSet = currentSet;
+    }
 
+    public List<Player> getPlayersList() {
+        return playersList;
+    }
+
+    public void setPlayersList(List<Player> playersList) {
+        this.playersList = playersList;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public List<String> getPointsList() {
+        return pointsList;
+    }
 
     //    Names
     //Players
