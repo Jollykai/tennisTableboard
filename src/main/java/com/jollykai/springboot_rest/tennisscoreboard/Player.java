@@ -32,8 +32,9 @@ public class Player {
         return playerSetsScores;
     }
 
-    public void setPlayerSetsScores(List<Integer> playerSetsScores) {
-        this.playerSetsScores = playerSetsScores;
+    public void setPlayerSetsScores(int setPoint)
+    {
+        playerSetsScores.set(setPoint, playerSetsScores.get(setPoint) + 1);
     }
 
     public int getSetsTaken() {

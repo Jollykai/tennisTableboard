@@ -1,6 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Tennis Scoreboard</title>
+</head>
 <body>
 <h1>TEST page!</h1>
 <br><br>
@@ -17,40 +20,14 @@
             <c:forEach var="score" items="${player.getPlayerSetsScores()}">
                 <td style="text-align: center;">${score}</td>
             </c:forEach>
-            <td><form action="showPlayers" method="put">
-                <input type="submit" name="${match.getPlayersList().indexOf(player)}" value="Take a point">
+            <td style="text-align: center;"><form action="showPlayers" method="put" >
+                <button type="submit" name="whoGetPoint" value="${match.getPlayersList().indexOf(player)}">
+                    Take a point</button>
             </form> </td>
         </tr>
-
-
     </c:forEach>
 
-<%--    <c:forEach var="lang" items="${employee.languages}">--%>
-<%--    <li>    ${lang} </li>--%>
-<%--    </c:forEach>--%>
-<%--    <tr>--%>
-<%--        <td></td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>$${match.getPlayersList().get(0).getName()}</td>--%>
-<%--        <td style="text-align: center;">${match.getPoints().get(match.getPlayer1().getPointsTaken())}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer1().getPlayerSetsScores().get(0)}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer1().getPlayerSetsScores().get(1)}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer1().getPlayerSetsScores().get(2)}</td>--%>
-<%--        <td><form action="match" modelAttribute= "match" method="post">--%>
-<%--            <input type="submit" name="1point" value="Player1 take a point">--%>
-<%--        </form> </td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td>${match.getPlayersList().get(1).getName()}</td>--%>
-<%--        <td style="text-align: center;">${match.getPoints().get(match.getPlayer2().getPointsTaken())}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer2().getPlayerSetsScores().get(0)}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer2().getPlayerSetsScores().get(1)}</td>--%>
-<%--        <td style="text-align: center;">${match.getPlayer2().getPlayerSetsScores().get(2)}</td>--%>
-<%--        <td><form action="match" modelAttribute= "match" method="post">--%>
-<%--            <input type="submit" name="2point" value="Player2 take a point">--%>
-<%--        </form> </td>--%>
-<%--    </tr>--%>
+
 </table>
 
 </body>

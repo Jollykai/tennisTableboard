@@ -44,6 +44,18 @@ public class Match {
         return pointsList;
     }
 
+    public void resetPlayerPoints() {
+        for (Player player : playersList) {
+            player.setPointsTaken(0);
+        }
+    }
+
+    public void resetPlayerAdvantage() {
+        for (Player player : playersList) {
+            player.setPointsTaken(3);
+        }
+    }
+
     //    Names
     //Players
 //    Player player1 = new Player();

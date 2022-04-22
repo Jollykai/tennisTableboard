@@ -1,6 +1,7 @@
 package com.jollykai.springboot_rest.tennisscoreboard.controller;
 
 import com.jollykai.springboot_rest.tennisscoreboard.Match;
+import com.jollykai.springboot_rest.tennisscoreboard.service.MatchLogic;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,16 +9,18 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MyController {
 
+    Match match;
+    MatchLogic matchLogic = new MatchLogic();
+
     @RequestMapping("/")
     public String showFirstView(Model model) {
-        Match match = new Match();
+        match = new Match();
         model.addAttribute(match);
         return "first-view";
     }
 
     @PostMapping("/showPlayers")
-    public String showTestView(@RequestParam String player1Name, String player2Name,
-                               @ModelAttribute Match match, Model model) {
+    public String showTestView(@RequestParam String player1Name, String player2Name, Model model) {
         match.getPlayersList().get(0).setName(player1Name);
         match.getPlayersList().get(1).setName(player2Name);
         model.addAttribute("match", match);
@@ -25,35 +28,13 @@ public class MyController {
     }
 
     @GetMapping("/showPlayers")
-    public String showTestView(@RequestParam String playerWhoGetPoint,
-                               @ModelAttribute Match match, Model model) {
-        System.out.println(playerWhoGetPoint);
-
-
+    public String showTestView2(@RequestParam String whoGetPoint, Model model) {
+        match = matchLogic.matchLogic(whoGetPoint,match);
         model.addAttribute("match", match);
-        return "test-view";
+        if (match.getWinner() == null) {
+            return "test-view";
+        } else {
+            return "game-over-view";
+        }
     }
-
-    @GetMapping("/match")
-    public String startMatch(Model model) {
-//            model.addAttribute("match", match);
-        return "match-view";
-    }
-
-    @PostMapping("/match")
-    public String playMatch(@RequestBody String point, Model model) {
-//        model.addAttribute("match", match);
-//        match.MatchLogic(point, match);
-
-//        if (match.isGameOver()) {
-//            return "game-over-view";
-//        } else {
-//            return "match-view";
-//        }
-          return "match-view";
-
-}
-
-
-
 }
