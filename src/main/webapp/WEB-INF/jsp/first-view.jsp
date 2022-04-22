@@ -41,7 +41,7 @@
         </tr>
         <tr>
             <td>
-                <input type="text" name="player1Name" placeholder="Write Player_1 name here"/>
+                <input type="text" name="player1Name" placeholder="Enter Player_1 name"/>
             </td>
             <th rowspan="2">
                 <input type="submit" value="Start new match" style="height:90px;width:200px"/>
@@ -49,12 +49,10 @@
         </tr>
         <tr>
             <td>
-                <input type="text" name="player2Name" placeholder="Write Player_2 name here"/>
+                <input type="text" name="player2Name" placeholder="Enter Player_2 name"/>
             </td>
         </tr>
     </table>
 </form>
-<br><br>
-<input type = "button" value = "Start match" onclick="window.location.href='/match'">
 </body>
 </html>

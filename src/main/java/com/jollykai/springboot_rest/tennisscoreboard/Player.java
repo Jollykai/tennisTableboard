@@ -7,7 +7,7 @@ import java.util.List;
 public class Player {
     private String name;
     private int pointsTaken;
-    private List<Integer> playerSetsScores = new ArrayList<>(Arrays.asList(0,0,0));
+    private final List<Integer> playerSetsScores = new ArrayList<>(Arrays.asList(0,0,0));
     private int setsTaken;
 
     public Player() {

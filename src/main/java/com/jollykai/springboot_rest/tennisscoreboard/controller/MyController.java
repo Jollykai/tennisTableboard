@@ -24,7 +24,7 @@ public class MyController {
         match.getPlayersList().get(0).setName(player1Name);
         match.getPlayersList().get(1).setName(player2Name);
         model.addAttribute("match", match);
-        return "test-view";
+        return "match-view";
     }
 
     @GetMapping("/showPlayers")
@@ -32,7 +32,7 @@ public class MyController {
         match = matchLogic.matchLogic(whoGetPoint,match);
         model.addAttribute("match", match);
         if (match.getWinner() == null) {
-            return "test-view";
+            return "match-view";
         } else {
             return "game-over-view";
         }

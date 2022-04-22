@@ -1,31 +1,53 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        table {
+            margin: 13% auto;
+        }
+        th{
+            background-color: #cecbcb;
+        }
+        tr, td, th {
+            border-collapse: collapse;
+            border-radius: 10px;
+            text-align: center;
+            padding: 8px 16px;
+            text-decoration: none;
+            margin: 2px 2px;
+        }
+    </style>
+    <title>Tennis Scoreboard</title>
+    <link rel="icon" href="trophy.png">
+</head>
 <body>
-<h1>Match page</h1>
-<br><br>
-<br><br>
-
-<table border="1">
+<table>
     <tr>
-        <td>${match.player1Name}</td>
-        <td style="text-align: center;">${match.points[match.player1Points]}</td>
-        <td style="text-align: center;">${match.player1SetScores[0]}</td>
-        <td style="text-align: center;">${match.player1SetScores[1]}</td>
-        <td style="text-align: center;">${match.player1SetScores[2]}</td>
+        <td colspan="6">
+            <IMG  src="/trophy.png" style="height:90px;width:90px">
+            <h1>Winner is</h1>
+            <h1>${match.getWinner().getName()}</h1>
+        </td>
     </tr>
     <tr>
-        <td>PLAYER</td><td>POINTS</td><td>SET 1</td><td>SET 2</td><td>SET 3</td>
-    </tr>
-    <tr>
-        <td>Player 2</td>
-        <td style="text-align: center;">${match.points[match.player2Points]}</td>
-        <td style="text-align: center;">${match.player2SetScores[0]}</td>
-        <td style="text-align: center;">${match.player2SetScores[1]}</td>
-        <td style="text-align: center;">${match.player2SetScores[2]}</td>
+        <td>
+            <table>
+                <tr>
+                    <th>PLAYER</th><th>POINTS</th><th>SET 1</th><th>SET 2</th><th>SET 3</th>
+                </tr>
+                <c:forEach var="player" items="${match.getPlayersList()}">
+                    <tr>
+                        <td>${player.getName()}</td>
+                        <td style="text-align: center;">${match.getPointsList().get(player.getPointsTaken())}</td>
+                        <c:forEach var="score" items="${player.getPlayerSetsScores()}">
+                            <td style="text-align: center;">${score}</td>
+                        </c:forEach>
+                    </tr>
+                </c:forEach>
+            </table>
+        </td>
     </tr>
 </table>
-
-<h1>GAME OVER</h1><br>
-Winner is - ${match.winner}!
 </body>
 </html>
