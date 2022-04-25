@@ -1,12 +1,12 @@
 package com.jollykai.springboot_rest.tennisscoreboard;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+@Data
 public class Match {
 
     private int currentSet;
@@ -14,34 +14,9 @@ public class Match {
     private final List<Player> playersList = new ArrayList<>();
     private Player winner;
 
-    @Autowired
     public Match() {
         playersList.add(new Player());
         playersList.add(new Player());
-    }
-
-    public int getCurrentSet() {
-        return currentSet;
-    }
-
-    public void setCurrentSet(int currentSet) {
-        this.currentSet = currentSet;
-    }
-
-    public List<Player> getPlayersList() {
-        return playersList;
-    }
-
-    public Player getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Player winner) {
-        this.winner = winner;
-    }
-
-    public List<String> getPointsList() {
-        return pointsList;
     }
 
     public void resetPlayerPoints() {
