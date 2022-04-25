@@ -19,16 +19,16 @@ public class MyController {
         return "first-view";
     }
 
-    @PostMapping("/showPlayers")
-    public String showTestView(@RequestParam String player1Name, String player2Name, Model model) {
+    @PostMapping("/startMatch")
+    public String showNewMatchView(@RequestParam String player1Name, String player2Name, Model model) {
         match.getPlayersList().get(0).setName(player1Name);
         match.getPlayersList().get(1).setName(player2Name);
         model.addAttribute("match", match);
         return "match-view";
     }
 
-    @GetMapping("/showPlayers")
-    public String showTestView2(@RequestParam String whoGetPoint, Model model) {
+    @PostMapping("/showScoreboard")
+    public String showCurrentMatchStatus(@RequestParam String whoGetPoint, Model model) {
         match = matchLogic.matchLogic(whoGetPoint,match);
         model.addAttribute("match", match);
         if (match.getWinner() == null) {
