@@ -49,7 +49,7 @@
             <c:forEach var="score" items="${player.getPlayerSetsScores()}">
                 <td style="text-align: center;">${score}</td>
             </c:forEach>
-            <td style="text-align: center;"><form action="showPlayers" method="put" >
+            <td style="text-align: center;"><form action="showScoreboard" method="post" >
                 <button type="submit" name="whoGetPoint" value="${match.getPlayersList().indexOf(player)}">
                     Take a point</button>
             </form> </td>

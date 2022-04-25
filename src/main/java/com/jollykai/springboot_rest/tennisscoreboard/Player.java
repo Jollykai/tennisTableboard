@@ -1,9 +1,12 @@
 package com.jollykai.springboot_rest.tennisscoreboard;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Data
 public class Player {
     private String name;
     private int pointsTaken;
@@ -12,36 +15,10 @@ public class Player {
 
     public Player() {
     }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getPointsTaken() {
-        return pointsTaken;
-    }
-
-    public void setPointsTaken(int pointsTaken) {
-        this.pointsTaken = pointsTaken;
-    }
-
-    public List<Integer> getPlayerSetsScores() {
-        return playerSetsScores;
-    }
 
     public void setPlayerSetsScores(int setPoint)
     {
         playerSetsScores.set(setPoint, playerSetsScores.get(setPoint) + 1);
     }
 
-    public int getSetsTaken() {
-        return setsTaken;
-    }
-
-    public void setSetsTaken(int setsTaken) {
-        this.setsTaken = setsTaken;
-    }
 }
