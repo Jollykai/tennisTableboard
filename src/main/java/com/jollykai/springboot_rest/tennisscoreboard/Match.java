@@ -1,9 +1,12 @@
 package com.jollykai.springboot_rest.tennisscoreboard;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 public class Match {
 
     private int currentSet;
@@ -11,6 +14,7 @@ public class Match {
     private final List<Player> playersList = new ArrayList<>();
     private Player winner;
 
+    @Autowired
     public Match() {
         playersList.add(new Player());
         playersList.add(new Player());
