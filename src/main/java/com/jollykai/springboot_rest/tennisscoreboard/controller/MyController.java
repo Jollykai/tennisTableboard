@@ -19,17 +19,14 @@ public class MyController {
         return "first-view";
     }
 
-    @PostMapping("/startMatch")
-    public String showNewMatchView(@RequestParam String player1Name, String player2Name, Model model) {
-        match.getPlayersList().get(0).setName(player1Name);
-        match.getPlayersList().get(1).setName(player2Name);
-        model.addAttribute("match", match);
-        return "match-view";
-    }
-
     @PostMapping("/showScoreboard")
-    public String showCurrentMatchStatus(@RequestParam String whoGetPoint, Model model) {
-        match = matchLogic.matchLogic(whoGetPoint,match);
+    public String showCurrentMatchStatus(String player1Name, String player2Name, String whoGetPoint, Model model) {
+        if (player1Name != null || player2Name != null) {
+            match.getPlayersList().get(0).setName(player1Name);
+            match.getPlayersList().get(1).setName(player2Name);
+        } else {
+            match = matchLogic.matchLogic(whoGetPoint,match);
+        }
         model.addAttribute("match", match);
         if (match.getWinner() == null) {
             return "match-view";

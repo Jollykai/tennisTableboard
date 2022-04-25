@@ -31,7 +31,7 @@
 </head>
 
 <body>
-<form action="startMatch" method="post">
+<form action="showScoreboard" method="post">
     <table>
         <tr>
             <th colspan="2">
