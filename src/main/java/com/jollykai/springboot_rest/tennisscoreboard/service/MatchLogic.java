@@ -25,26 +25,34 @@ public class MatchLogic{
         player1 = match.getPlayersList().get(0);
         player2 = match.getPlayersList().get(1);
 
-        if (player1.getPointsTaken() == TennisScore.FORTY.ordinal() &&
-                player2.getPointsTaken() < TennisScore.THIRTY.ordinal() ||
-                player1.getPointsTaken() == TennisScore.ADVANTAGE.ordinal() &&
-                        player2.getPointsTaken() == TennisScore.THIRTY.ordinal()) {
+        if ((player1.getPointsTaken() == TennisScore.FORTY.getIndex() &&
+                player2.getPointsTaken() < TennisScore.THIRTY.getIndex()) ||
+                (player1.getPointsTaken() == TennisScore.ADVANTAGE.getIndex() &&
+                        player2.getPointsTaken() == TennisScore.THIRTY.getIndex())) {
             match.resetPlayerPoints();
             player1.setPlayerSetsScores(match.getCurrentSet());
-        } else if (player2.getPointsTaken() == TennisScore.FORTY.ordinal() &&
-                player1.getPointsTaken() < TennisScore.THIRTY.ordinal() ||
-                player2.getPointsTaken() == TennisScore.ADVANTAGE.ordinal() &&
-                        player1.getPointsTaken() == TennisScore.THIRTY.ordinal()) {
+        } else if ((player2.getPointsTaken() == TennisScore.FORTY.getIndex() &&
+                player1.getPointsTaken() < TennisScore.THIRTY.getIndex()) ||
+                (player2.getPointsTaken() == TennisScore.ADVANTAGE.getIndex() &&
+                        player1.getPointsTaken() == TennisScore.THIRTY.getIndex())) {
             match.resetPlayerPoints();
             player2.setPlayerSetsScores(match.getCurrentSet());
-        } else if (player1.getPointsTaken() == TennisScore.FORTY.ordinal() &&
-                player2.getPointsTaken() == TennisScore.FORTY.ordinal()) {
+        } else if (player1.getPointsTaken() == TennisScore.FORTY.getIndex() &&
+                player2.getPointsTaken() == TennisScore.FORTY.getIndex()) {
             match.resetPlayerAdvantage();
         }
         return setLogic(match);
     }
 
     public Match setLogic(Match match) {
+
+        for (Player player : match.getPlayersList()) {
+            if (player.getSetsTaken() == SETS_FOR_WIN) {
+                match.setWinner(player);
+                return match;
+            }
+        }
+
         int player1Games = player1.getPlayerSetsScores().get(match.getCurrentSet());
         int player2Games = player2.getPlayerSetsScores().get(match.getCurrentSet());
         boolean player1HasAdvantage = player1Games - player2Games >= 2;
@@ -58,12 +66,6 @@ public class MatchLogic{
             player2.setSetsTaken(player2.getSetsTaken() + 1);
         }
 
-        for (Player player : match.getPlayersList()) {
-            if (player.getSetsTaken() == SETS_FOR_WIN) {
-                match.setWinner(player);
-                return match;
-            }
-        }
         return match;
     }
 }

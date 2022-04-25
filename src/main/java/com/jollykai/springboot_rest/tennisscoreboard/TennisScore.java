@@ -8,6 +8,13 @@ public enum TennisScore {
     FORTY(4),
     ADVANTAGE(5);
 
+    final int index;
+
     TennisScore(int index) {
+        this.index = index;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }
