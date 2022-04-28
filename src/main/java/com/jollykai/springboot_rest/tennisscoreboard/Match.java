@@ -1,12 +1,14 @@
 package com.jollykai.springboot_rest.tennisscoreboard;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Data
+@Component
 public class Match {
 
     private int currentSet;
@@ -18,6 +20,10 @@ public class Match {
         playersList.add(new Player());
         playersList.add(new Player());
     }
+//
+//    public static Match getNewMatch() {
+//        return new Match();
+//    }
 
     public void resetPlayerPoints() {
         for (Player player : playersList) {

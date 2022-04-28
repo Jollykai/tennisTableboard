@@ -17,6 +17,16 @@
             text-decoration: none;
             margin: 2px 2px;
         }
+        button {
+            background-color: #5dc462;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 2px 2px;
+            cursor: pointer;
+        }
     </style>
     <title>Tennis Scoreboard</title>
     <link rel="icon" href="trophy.png">
@@ -47,6 +57,12 @@
                 </c:forEach>
             </table>
         </td>
+    </tr>
+    <tr>
+        <td style="text-align: center;"><form action="/startNewMatch" method="post" >
+            <button type="submit">
+                Start NEW match</button>
+        </form> </td>
     </tr>
 </table>
 </body>
