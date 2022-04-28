@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 @Data
-@Component
 public class Match {
 
     private int currentSet;

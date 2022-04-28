@@ -10,8 +10,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class MyController {
-    @Autowired
-    Match match;
+    Match match = new Match();
     @Autowired
     MatchLogic matchLogic;
 
